@@ -6,23 +6,23 @@ if (!defined('DIR_CORE')) {
 
 $controllers = array(
     'storefront' => array(
-        'responses/extension/simplepay_payments'
+        'responses/extension/paystack'
     ),
     'admin' => array( ),
 );
 
 $models = array(
-    'storefront' => array( 'extension/simplepay_payments' ),
+    'storefront' => array( 'extension/paystack' ),
     'admin' => array( ),
 );
 
 $languages = array(
     'storefront' => array(
-        'simplepay_payments/simplepay_payments'),
+        'paystack/paystack'),
     'admin' => array(
-        'simplepay_payments/simplepay_payments'));
+        'paystack/paystack'));
 
 $templates = array(
     'storefront' => array(
-        'responses/simplepay_payments.tpl'),
+        'responses/paystack.tpl'),
     'admin' => array());

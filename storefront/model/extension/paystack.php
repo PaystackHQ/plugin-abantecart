@@ -6,16 +6,16 @@ if ( !defined ( 'DIR_CORE' )) {
 
 class ModelExtensionPaystack extends Model {
     public function getMethod($address) {
-        $this->load->language('simplepay_payments/simplepay_payments');
+        $this->load->language('paystack/paystack');
 
-        if ($this->config->get('simplepay_payments_status')) {
+        if ($this->config->get('paystack_status')) {
             $sql = "SELECT * FROM " . DB_PREFIX . "zones_to_locations
-                WHERE location_id = '" . (int)$this->config->get('simplepay_payments_location_id') . "'
+                WHERE location_id = '" . (int)$this->config->get('paystack_location_id') . "'
                 AND country_id = '" . (int)$address['country_id'] . "'
                 AND (zone_id = '" . (int)$address['zone_id'] . "' OR zone_id = '0')";
             $query = $this->db->query($sql);
 
-            if (!$this->config->get('simplepay_payments_location_id')) {
+            if (!$this->config->get('paystack_location_id')) {
                 $status = TRUE;
             } elseif ($query->num_rows) {
                 $status = TRUE;
@@ -31,9 +31,9 @@ class ModelExtensionPaystack extends Model {
 
         if ($status) {
             $method_data = array(
-            'id'         => 'simplepay_payments',
+            'id'         => 'paystack',
             'title'      => $this->language->get('text_title'),
-            'sort_order' => $this->config->get('simplepay_payments_sort_order')
+            'sort_order' => $this->config->get('paystack_sort_order')
             );
         }
 

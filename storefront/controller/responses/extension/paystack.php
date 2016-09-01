@@ -7,25 +7,33 @@ if ( !defined ( 'DIR_CORE' )) {
 class ControllerResponsesExtensionPaystack extends AController{
 
     public $data = array();
-
+    // public function generate_new_code($length = 4){
+    //   $characters = 'RS01234ABCD6789KTUVWLMNOPQEFGHIJ5XYZ';
+    //   $charactersLength = Tools::strlen($characters);
+    //   $randomString = '';
+    //   for ($i = 0; $i < $length; $i++) {
+    //       $randomString .= $characters[rand(0, $charactersLength - 1)];
+    //   }
+    //   return $randomString;
+    // }
     public function main(){
 
         $this->data['button_confirm'] = $this->language->get('button_confirm');
         $this->data['button_back'] = $this->language->get('button_back');
 
-        if ($this->config->get('simplepay_payments_sandbox')) {
-            $this->data['key'] = $this->config->get('simplepay_payments_putk');
+        if ($this->config->get('paystack_sandbox') == 'test') {
+            $this->data['key'] = $this->config->get('paystack_putk');
         }
         else {
-            $this->data['key'] = $this->config->get('simplepay_payments_pulk');
+            $this->data['key'] = $this->config->get('paystack_pulk');
         }
 
         if($this->config->get('embed_mode')) {
             $this->data['target_parent'] = 'target="_parent"';
         }
 
-        $this->data['image'] = $this->config->get('simplepay_payments_customimg');
-        $this->data['customdesc'] = $this->config->get('simplepay_payments_customdesc');
+        $this->data['image'] = $this->config->get('paystack_customimg');
+        $this->data['customdesc'] = $this->config->get('paystack_customdesc');
 
         $this->load->model('checkout/order');
 
@@ -39,11 +47,12 @@ class ControllerResponsesExtensionPaystack extends AController{
         $this->data['city'] = $order_info['shipping_city'];
         $this->data['postal_code'] = $order_info['shipping_postcode'];
         $this->data['address'] = $order_info['shipping_address_1'];
-        $this->data['form_callback'] = $this->html->getSecureURL('extension/simplepay_payments/callback');
+        $this->data['form_callback'] = $this->html->getSecureURL('extension/paystack/callback');
 
         $this->load->library('encryption');
         $encryption = new AEncryption($this->config->get('encryption_key'));
         $this->data['id'] = $encryption->encrypt($this->session->data['order_id']);
+        // $this->data['txn_code'] = $encryption->encrypt($this->session->data['order_id']);
 
         if ($this->request->get['rt'] != 'checkout/guest_step_3') {
             $this->data['back'] = $this->html->getSecureURL('checkout/payment');
@@ -68,7 +77,7 @@ class ControllerResponsesExtensionPaystack extends AController{
             ));
 
         $this->view->batchAssign( $this->data );
-        $this->processTemplate('responses/simplepay_payments.tpl');
+        $this->processTemplate('responses/paystack.tpl');
     }
 
     function callback(){
@@ -96,18 +105,19 @@ class ControllerResponsesExtensionPaystack extends AController{
             return null;
         }
 
-        $prk = $this->config->get('simplepay_payments_sandbox') ? $this->config->get('simplepay_payments_prtk') : $this->config->get('simplepay_payments_prlk');
+        $prk = $this->config->get('paystack_sandbox') ? $this->config->get('paystack_prtk') : $this->config->get('paystack_prlk');
 
-        $verified_transaction = verify_transaction($this->request->post['token'], $this->request->post['amount'], $this->request->post['currency'], $prk);
+        // $verified_transaction = verify_transaction($this->request->post['token'], $this->request->post['amount'], $this->request->post['currency'], $prk);
 
-        if ($verified_transaction['verified']) {
-            $this->model_checkout_order->confirm($order_id, $this->config->get('simplepay_payments_order_status_id'),'The Order was payed with success, transaction id : '.$verified_transaction['response']['id']);
-        }
-        else{
+        $verified_transaction = verify_txn($this->request->post['id'],$prk);
+        if (($verification->status===false) || (!property_exists($verification, 'data')) || ($verification->data->status !== 'success')) {
             $this->model_checkout_order->confirm($order_id, $this->config->get('config_order_status_id'),'Processing Payment');
 
             $msg = new AMessage();
-            $msg->saveError('SimplePay Payment','Error verifying the payment of the order '.$order_id.' ! Check transaction API result : '.json_encode($verified_transaction['response']));
+            $msg->saveError('Paystack Payment','Error verifying the payment of the order '.$order_id.' ! Check transaction API result : '.json_encode($verified_transaction['response']));
+        }else{
+          $this->model_checkout_order->confirm($order_id, $this->config->get('paystack_order_status_id'),'The Order was payed with success, transaction id : '.$verified_transaction['response']['id']);
+
         }
 
         $this->redirect($this->html->getURL('checkout/success'));

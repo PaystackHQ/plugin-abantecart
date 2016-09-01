@@ -1,67 +1,67 @@
 <?xml version="1.0"?>
 <definitions>
     <definition>
-        <key>simplepay_payments_name</key>
-        <value><![CDATA[Simplepay Payments]]></value>
+        <key>paystack_name</key>
+        <value><![CDATA[Paystack Payments]]></value>
     </definition>
     <definition>
-        <key>simplepay_payments_note</key>
+        <key>paystack_note</key>
         <value><![CDATA[Make sure you have all the API keys correctly, for the plugin to work]]></value>
     </definition>
     <definition>
-        <key>simplepay_payments_sandbox</key>
-        <value><![CDATA[Sandbox (Test) Mode :]]></value>
+        <key>paystack_sandbox</key>
+        <value><![CDATA[Mode :]]></value>
     </definition>
     <definition>
-        <key>simplepay_payments_sandbox_0</key>
+        <key>paystack_sandbox_test</key>
+        <value><![CDATA[Test]]></value>
+    </definition>
+    <definition>
+        <key>paystack_sandbox_live</key>
+        <value><![CDATA[Live]]></value>
+    </definition>
+    <definition>
+        <key>paystack_apimode_0</key>
         <value><![CDATA[Disable]]></value>
     </definition>
     <definition>
-        <key>simplepay_payments_sandbox_1</key>
-        <value><![CDATA[Enable]]></value>
+        <key>paystack_putk</key>
+        <value><![CDATA[Test Public Key:]]></value>
     </definition>
     <definition>
-        <key>simplepay_payments_apimode_0</key>
-        <value><![CDATA[Disable]]></value>
+        <key>paystack_prtk</key>
+        <value><![CDATA[Test Secret Key:]]></value>
     </definition>
     <definition>
-        <key>simplepay_payments_putk</key>
-        <value><![CDATA[Public test API key:]]></value>
+        <key>paystack_pulk</key>
+        <value><![CDATA[Live Public Key:]]></value>
     </definition>
     <definition>
-        <key>simplepay_payments_prtk</key>
-        <value><![CDATA[Private test API key:]]></value>
+        <key>paystack_prlk</key>
+        <value><![CDATA[Live Secret Key:]]></value>
     </definition>
     <definition>
-        <key>simplepay_payments_pulk</key>
-        <value><![CDATA[Public live API key:]]></value>
-    </definition>
-    <definition>
-        <key>simplepay_payments_prlk</key>
-        <value><![CDATA[Private live API key:]]></value>
-    </definition>
-    <definition>
-        <key>simplepay_payments_customimg</key>
+        <key>paystack_customimg</key>
         <value><![CDATA[Custom checkout Image:]]></value>
     </definition>
     <definition>
-        <key>simplepay_payments_customdesc</key>
+        <key>paystack_customdesc</key>
         <value><![CDATA[Custom checkout description:]]></value>
     </definition>
     <definition>
-        <key>simplepay_payments_order_status_id</key>
+        <key>paystack_order_status_id</key>
         <value><![CDATA[SimplePay Sucessfull Payment Status:]]></value>
     </definition>
     <definition>
-        <key>simplepay_payments_order_status_id_1</key>
+        <key>paystack_order_status_id_1</key>
         <value><![CDATA[Pending]]></value>
     </definition>
     <definition>
-        <key>simplepay_payments_order_status_id_2</key>
+        <key>paystack_order_status_id_2</key>
         <value><![CDATA[Processing]]></value>
     </definition>
     <definition>
-        <key>simplepay_payments_order_status_id_5</key>
+        <key>paystack_order_status_id_5</key>
         <value><![CDATA[Complete]]></value>
     </definition>
 </definitions>
