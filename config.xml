@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<extension>
+    <id>simplepay_payments</id>
+    <version>1.0.1</version>
+    <type>payment</type>
+    <category>payment</category>
+    <cartversions>
+        <item>1.2</item>
+    </cartversions>
+    <layout></layout>
+    <priority>10</priority>
+    <settings>
+        <item id="simplepay_payments_sandbox">
+            <type>selectbox</type>
+            <variants>
+                <item>1</item>
+                <item>0</item>
+            </variants>
+        </item>
+        <item id="simplepay_payments_putk">
+            <type required="true">input</type>
+        </item>
+        <item id="simplepay_payments_prtk">
+            <type required="true">input</type>
+        </item>
+        <item id="simplepay_payments_pulk">
+            <type>input</type>
+        </item>
+        <item id="simplepay_payments_prlk">
+            <type>input</type>
+        </item>
+        <item id="simplepay_payments_customimg">
+            <type>input</type>
+        </item>
+        <item id="simplepay_payments_customdesc">
+            <type>input</type>
+        </item>
+        <item id="simplepay_payments_order_status_id">
+            <type>selectbox</type>
+            <variants>
+                <item>1</item>
+                <item>2</item>
+                <item>5</item>
+            </variants>
+            <default_value>2</default_value>
+        </item>
+    </settings>
+    <note>true</note>
+    <custom_settings_template>pages/extension/simplepay_payments.tpl</custom_settings_template>
+</extension>

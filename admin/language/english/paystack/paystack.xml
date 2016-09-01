@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<definitions>
+    <definition>
+        <key>simplepay_payments_name</key>
+        <value><![CDATA[Simplepay Payments]]></value>
+    </definition>
+    <definition>
+        <key>simplepay_payments_note</key>
+        <value><![CDATA[Make sure you have all the API keys correctly, for the plugin to work]]></value>
+    </definition>
+    <definition>
+        <key>simplepay_payments_sandbox</key>
+        <value><![CDATA[Sandbox (Test) Mode :]]></value>
+    </definition>
+    <definition>
+        <key>simplepay_payments_sandbox_0</key>
+        <value><![CDATA[Disable]]></value>
+    </definition>
+    <definition>
+        <key>simplepay_payments_sandbox_1</key>
+        <value><![CDATA[Enable]]></value>
+    </definition>
+    <definition>
+        <key>simplepay_payments_apimode_0</key>
+        <value><![CDATA[Disable]]></value>
+    </definition>
+    <definition>
+        <key>simplepay_payments_putk</key>
+        <value><![CDATA[Public test API key:]]></value>
+    </definition>
+    <definition>
+        <key>simplepay_payments_prtk</key>
+        <value><![CDATA[Private test API key:]]></value>
+    </definition>
+    <definition>
+        <key>simplepay_payments_pulk</key>
+        <value><![CDATA[Public live API key:]]></value>
+    </definition>
+    <definition>
+        <key>simplepay_payments_prlk</key>
+        <value><![CDATA[Private live API key:]]></value>
+    </definition>
+    <definition>
+        <key>simplepay_payments_customimg</key>
+        <value><![CDATA[Custom checkout Image:]]></value>
+    </definition>
+    <definition>
+        <key>simplepay_payments_customdesc</key>
+        <value><![CDATA[Custom checkout description:]]></value>
+    </definition>
+    <definition>
+        <key>simplepay_payments_order_status_id</key>
+        <value><![CDATA[SimplePay Sucessfull Payment Status:]]></value>
+    </definition>
+    <definition>
+        <key>simplepay_payments_order_status_id_1</key>
+        <value><![CDATA[Pending]]></value>
+    </definition>
+    <definition>
+        <key>simplepay_payments_order_status_id_2</key>
+        <value><![CDATA[Processing]]></value>
+    </definition>
+    <definition>
+        <key>simplepay_payments_order_status_id_5</key>
+        <value><![CDATA[Complete]]></value>
+    </definition>
+</definitions>
