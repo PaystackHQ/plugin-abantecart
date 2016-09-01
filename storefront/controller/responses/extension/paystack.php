@@ -7,15 +7,15 @@ if ( !defined ( 'DIR_CORE' )) {
 class ControllerResponsesExtensionPaystack extends AController{
 
     public $data = array();
-    // public function generate_new_code($length = 4){
-    //   $characters = 'RS01234ABCD6789KTUVWLMNOPQEFGHIJ5XYZ';
-    //   $charactersLength = Tools::strlen($characters);
-    //   $randomString = '';
-    //   for ($i = 0; $i < $length; $i++) {
-    //       $randomString .= $characters[rand(0, $charactersLength - 1)];
-    //   }
-    //   return $randomString;
-    // }
+    public function generate_code($length = 4){
+      $characters = 'RS01234ABCD6789KTUVWLMNOPQEFGHIJ5XYZ';
+      $charactersLength = strlen($characters);
+      $randomString = '';
+      for ($i = 0; $i < $length; $i++) {
+          $randomString .= $characters[rand(0, $charactersLength - 1)];
+      }
+      return $randomString;
+    }
     public function main(){
 
         $this->data['button_confirm'] = $this->language->get('button_confirm');
@@ -32,8 +32,8 @@ class ControllerResponsesExtensionPaystack extends AController{
             $this->data['target_parent'] = 'target="_parent"';
         }
 
-        $this->data['image'] = $this->config->get('paystack_customimg');
-        $this->data['customdesc'] = $this->config->get('paystack_customdesc');
+        $this->data['image'] = $this->html->getSecureURL('extensions/paystack/image/icon.png');
+        // $this->data['customdesc'] = $this->config->get('paystack_customdesc');
 
         $this->load->model('checkout/order');
 
@@ -52,7 +52,7 @@ class ControllerResponsesExtensionPaystack extends AController{
         $this->load->library('encryption');
         $encryption = new AEncryption($this->config->get('encryption_key'));
         $this->data['id'] = $encryption->encrypt($this->session->data['order_id']);
-        // $this->data['txn_code'] = $encryption->encrypt($this->session->data['order_id']);
+        $this->data['txn_code'] = $this->generate_code().$this->session->data['order_id'].$this->generate_code();
 
         if ($this->request->get['rt'] != 'checkout/guest_step_3') {
             $this->data['back'] = $this->html->getSecureURL('checkout/payment');
@@ -104,19 +104,21 @@ class ControllerResponsesExtensionPaystack extends AController{
             error_log('asd',0);
             return null;
         }
+        if ($this->config->get('paystack_sandbox') == 'test') {
+            $prk =  $this->config->get('paystack_prtk');
+        }
+        else {
+            $prk =  $this->config->get('paystack_prlk');
+        }
 
-        $prk = $this->config->get('paystack_sandbox') ? $this->config->get('paystack_prtk') : $this->config->get('paystack_prlk');
-
-        // $verified_transaction = verify_transaction($this->request->post['token'], $this->request->post['amount'], $this->request->post['currency'], $prk);
-
-        $verified_transaction = verify_txn($this->request->post['id'],$prk);
+        $verification = verify_txn($this->request->post['txn_code'],$prk);
         if (($verification->status===false) || (!property_exists($verification, 'data')) || ($verification->data->status !== 'success')) {
             $this->model_checkout_order->confirm($order_id, $this->config->get('config_order_status_id'),'Processing Payment');
 
             $msg = new AMessage();
-            $msg->saveError('Paystack Payment','Error verifying the payment of the order '.$order_id.' ! Check transaction API result : '.json_encode($verified_transaction['response']));
+            $msg->saveError('Paystack Payment','Error verifying the payment of the order '.$order_id);
         }else{
-          $this->model_checkout_order->confirm($order_id, $this->config->get('paystack_order_status_id'),'The Order was payed with success, transaction id : '.$verified_transaction['response']['id']);
+          $this->model_checkout_order->confirm($order_id, $this->config->get('paystack_order_status_id'),'Payment was successful, Transaction ID : '.$this->request->post['txn_code']);
 
         }
 

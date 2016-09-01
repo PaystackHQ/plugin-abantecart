@@ -18,24 +18,24 @@
 
             </variants>
         </item>
-        <item id="paystack_putk">
-            <type required="true">input</type>
-        </item>
         <item id="paystack_prtk">
             <type required="true">input</type>
         </item>
-        <item id="paystack_pulk">
-            <type>input</type>
+        <item id="paystack_putk">
+            <type required="true">input</type>
         </item>
         <item id="paystack_prlk">
             <type>input</type>
         </item>
-        <item id="paystack_customimg">
+        <item id="paystack_pulk">
             <type>input</type>
         </item>
-        <item id="paystack_customdesc">
+        <!-- <item id="paystack_customimg">
             <type>input</type>
-        </item>
+        </item> -->
+        <!-- <item id="paystack_customdesc">
+            <type>input</type>
+        </item> -->
         <item id="paystack_order_status_id">
             <type>selectbox</type>
             <variants>

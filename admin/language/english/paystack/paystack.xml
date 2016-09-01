@@ -25,32 +25,24 @@
         <value><![CDATA[Disable]]></value>
     </definition>
     <definition>
-        <key>paystack_putk</key>
-        <value><![CDATA[Test Public Key:]]></value>
-    </definition>
-    <definition>
         <key>paystack_prtk</key>
         <value><![CDATA[Test Secret Key:]]></value>
     </definition>
     <definition>
-        <key>paystack_pulk</key>
-        <value><![CDATA[Live Public Key:]]></value>
+        <key>paystack_putk</key>
+        <value><![CDATA[Test Public Key:]]></value>
     </definition>
     <definition>
         <key>paystack_prlk</key>
         <value><![CDATA[Live Secret Key:]]></value>
     </definition>
     <definition>
-        <key>paystack_customimg</key>
-        <value><![CDATA[Custom checkout Image:]]></value>
-    </definition>
-    <definition>
-        <key>paystack_customdesc</key>
-        <value><![CDATA[Custom checkout description:]]></value>
+        <key>paystack_pulk</key>
+        <value><![CDATA[Live Public Key:]]></value>
     </definition>
     <definition>
         <key>paystack_order_status_id</key>
-        <value><![CDATA[SimplePay Sucessfull Payment Status:]]></value>
+        <value><![CDATA[Order Status on Successful Payment:]]></value>
     </definition>
     <definition>
         <key>paystack_order_status_id_1</key>
