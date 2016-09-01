@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package>
+    <id>Paystack</id>
+    <type>payment</type>
+    <version>1.0.0</version>
+    <minversion>1.0.0</minversion>
+    <cartversions>
+        <item>1.2</item>
+    </cartversions>
+    <package_content>
+        <extensions>
+            <extension>paystack</extension>
+        </extensions>
+    </package_content>
+</package>
