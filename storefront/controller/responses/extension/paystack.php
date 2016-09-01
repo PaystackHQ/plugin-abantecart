@@ -22,18 +22,15 @@ class ControllerResponsesExtensionPaystack extends AController{
         $this->data['button_back'] = $this->language->get('button_back');
 
         if ($this->config->get('paystack_sandbox') == 'test') {
-            $this->data['key'] = $this->config->get('paystack_putk');
+            $this->data['key'] = $this->config->get('paystack_tpk');
         }
         else {
-            $this->data['key'] = $this->config->get('paystack_pulk');
+            $this->data['key'] = $this->config->get('paystack_lpk');
         }
 
         if($this->config->get('embed_mode')) {
             $this->data['target_parent'] = 'target="_parent"';
         }
-
-        $this->data['image'] = $this->html->getSecureURL('extensions/paystack/image/icon.png');
-        // $this->data['customdesc'] = $this->config->get('paystack_customdesc');
 
         $this->load->model('checkout/order');
 
@@ -105,10 +102,10 @@ class ControllerResponsesExtensionPaystack extends AController{
             return null;
         }
         if ($this->config->get('paystack_sandbox') == 'test') {
-            $prk =  $this->config->get('paystack_prtk');
+            $prk =  $this->config->get('paystack_tsk');
         }
         else {
-            $prk =  $this->config->get('paystack_prlk');
+            $prk =  $this->config->get('paystack_lsk');
         }
 
         $verification = verify_txn($this->request->post['txn_code'],$prk);

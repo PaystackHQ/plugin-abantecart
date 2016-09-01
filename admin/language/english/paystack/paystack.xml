@@ -25,19 +25,19 @@
         <value><![CDATA[Disable]]></value>
     </definition>
     <definition>
-        <key>paystack_prtk</key>
+        <key>paystack_tsk</key>
         <value><![CDATA[Test Secret Key:]]></value>
     </definition>
     <definition>
-        <key>paystack_putk</key>
+        <key>paystack_tpk</key>
         <value><![CDATA[Test Public Key:]]></value>
     </definition>
     <definition>
-        <key>paystack_prlk</key>
+        <key>paystack_lsk</key>
         <value><![CDATA[Live Secret Key:]]></value>
     </definition>
     <definition>
-        <key>paystack_pulk</key>
+        <key>paystack_lpk</key>
         <value><![CDATA[Live Public Key:]]></value>
     </definition>
     <definition>
