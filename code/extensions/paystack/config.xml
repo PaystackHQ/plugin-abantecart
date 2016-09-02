@@ -41,5 +41,4 @@
         </item>
     </settings>
     <note>true</note>
-    <custom_settings_template>pages/extension/paystack.tpl</custom_settings_template>
 </extension>
