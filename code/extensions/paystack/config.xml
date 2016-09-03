@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <extension>
     <id>paystack</id>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <type>payment</type>
     <category>payment</category>
     <cartversions>
-        <item>1.0</item>
+        <item>1.1</item>
     </cartversions>
     <layout></layout>
     <priority>10</priority>

@@ -2,10 +2,10 @@
 <package>
     <id>paystack</id>
     <type>payment</type>
-    <version>1.0.2</version>
-    <minversion>1.0.2</minversion>
+    <version>1.0.3</version>
+    <minversion>1.0.3</minversion>
     <cartversions>
-        <item>1.0</item>
+        <item>1.1</item>
     </cartversions>
     <package_content>
         <extensions>
