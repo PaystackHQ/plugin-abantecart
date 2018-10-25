@@ -11,6 +11,7 @@
       src="https://js.paystack.co/v1/inline.js"
       data-key="<?php echo $key; ?>"
       data-email="<?php echo $email; ?>"
+      data-currency="<?php echo $currency; ?>"
       data-amount="<?php echo $amount*100; ?>"
       data-ref="<?php echo $txn_code; ?>">
     </script>
