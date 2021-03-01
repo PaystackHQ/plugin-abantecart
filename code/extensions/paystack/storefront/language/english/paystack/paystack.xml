@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<definitions>
-    <definition>
-        <key>text_title</key>
-        <value><![CDATA[Master Card, Visa and Verve (Processed securely by Paystack)<br/><img src="extensions/paystack/image/paystack.png" alt="Pay with Paystack" />]]></value>
-    </definition>
-</definitions>

@@ -31,7 +31,7 @@ class ModelExtensionPaystack extends Model {
 
         if ($status) {
             $method_data = array(
-            'id'         => 'paystack',
+            'id'         => 'paystack-payments',
             'title'      => $this->language->get('text_title'),
             'sort_order' => $this->config->get('paystack_sort_order')
             );
