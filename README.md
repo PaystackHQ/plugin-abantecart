@@ -14,17 +14,14 @@ Here you can browse the source code, look at open issues and keep track of devel
 
 ### Automatic installation
 
-Automatic installation is the easiest option as WordPress handles the file transfers itself and you don’t need to leave your web browser. To do an automatic install of WPJobster Paystack Gateway, log in to your WordPress dashboard, navigate to the Plugins menu and click Add New.
+Automatic installation is the easiest option as Abantecart handles the file transfers itself and you don’t need to leave your web browser. To do an automatic install of Abantecart Paystack Gateway, log in to your Abantecart dashboard, navigate to the Integrations menu and click "Payments".
 
-In the search field type “WPJobster Paystack Gateway” and click Search Plugins. Once you’ve found our payment plugin you can view details about it such as the point release, rating and description. Most importantly of course, you can install it by simply clicking “Install Now”.
+In the search field type “Paystack” and click Search Plugins. Once you’ve found our payment plugin you can view details about it such as the point release, rating and description. Most importantly of course, you can install it by simply clicking “Add to cart”, then complete the checkout process.
 
-### Manual installation
-
-The manual installation method involves downloading our payment plugin and uploading it to your webserver via your favourite FTP application. The WordPress codex contains [instructions on how to do this here](https://codex.wordpress.org/Managing_Plugins#Manual_Plugin_Installation).
 
 ## Documentation
 
-* [Paystack Documentation](https://developers.paystack.co/v2.0/docs/)
+* [Paystack Documentation](https://paystack.com/docs/)
 * [Paystack Helpdesk](https://paystack.com/help)
 
 ## Support
@@ -35,7 +32,7 @@ For general support or questions about your Paystack account, you can reach out 
 
 ## Community
 
-If you are a developer, please join our Developer Community on [Slack](https://slack.paystack.com).
+If you are a developer, please join our Developer Community on [Slack](https://slack.payslack.com).
 
 ## Contributing to the Abantecart plugin
 

@@ -113,7 +113,7 @@ class ControllerResponsesExtensionPaystack extends AController{
             $this->model_checkout_order->confirm($order_id, $this->config->get('config_order_status_id'),'Processing Payment');
 
             $msg = new AMessage();
-            $msg->saveError('Paystack Payment','Error verifying the payment of the order '.$order_id);
+            $msg->saveError('Paystack','Error verifying the payment of the order '.$order_id);
         }else{
           $this->model_checkout_order->confirm($order_id, $this->config->get('paystack_order_status_id'),'Payment was successful, Transaction ID : '.$this->request->post['txn_code']);
 
