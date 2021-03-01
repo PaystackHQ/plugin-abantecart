@@ -44,7 +44,7 @@ class ControllerResponsesExtensionPaystack extends AController{
         $this->data['city'] = $order_info['shipping_city'];
         $this->data['postal_code'] = $order_info['shipping_postcode'];
         $this->data['address'] = $order_info['shipping_address_1'];
-        $this->data['form_callback'] = $this->html->getSecureURL('extension/paystack/callback');
+        $this->data['form_callback'] = $this->html->getSecureURL('extension/paystack-payments/callback');
 
         $this->load->library('encryption');
         $encryption = new AEncryption($this->config->get('encryption_key'));
