@@ -6,23 +6,23 @@ if (!defined('DIR_CORE')) {
 
 $controllers = array(
     'storefront' => array(
-        'responses/extension/paystack'
+        'responses/extension/paystack-payments'
     ),
     'admin' => array( ),
 );
 
 $models = array(
-    'storefront' => array( 'extension/paystack' ),
+    'storefront' => array( 'extension/paystack-payments' ),
     'admin' => array( ),
 );
 
 $languages = array(
     'storefront' => array(
-        'paystack/paystack'),
+        'paystack-payments/paystack-payments'),
     'admin' => array(
-        'paystack/paystack'));
+        'paystack-payments/paystack-payments'));
 
 $templates = array(
     'storefront' => array(
-        'responses/paystack.tpl'),
+        'responses/paystack-payments.tpl'),
     'admin' => array());

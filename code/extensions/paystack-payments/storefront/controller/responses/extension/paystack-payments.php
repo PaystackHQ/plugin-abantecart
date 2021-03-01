@@ -74,7 +74,7 @@ class ControllerResponsesExtensionPaystack extends AController{
             ));
 
         $this->view->batchAssign( $this->data );
-        $this->processTemplate('responses/paystack.tpl');
+        $this->processTemplate('responses/paystack-payments.tpl');
     }
 
     function callback(){
