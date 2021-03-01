@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package>
-    <id>paystack</id>
+    <id>paystack-payments</id>
     <type>payment</type>
     <version>1.1.0</version>
     <minversion>1.0.3</minversion>

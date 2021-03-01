@@ -2,7 +2,7 @@
 <definitions>
     <definition>
         <key>paystack_name</key>
-        <value><![CDATA[Paystack Payments]]></value>
+        <value><![CDATA[Paystack]]></value>
     </definition>
     <definition>
         <key>paystack_note</key>
