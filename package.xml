@@ -5,11 +5,11 @@
     <version>1.1.0</version>
     <minversion>1.0.3</minversion>
     <cartversions>
-        <item>1.1</item>
+        <item>1.2.16</item>
     </cartversions>
     <package_content>
         <extensions>
-            <extension>paystack</extension>
+            <extension>paystack-payments</extension>
         </extensions>
     </package_content>
 </package>
