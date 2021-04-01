@@ -4,7 +4,7 @@ if ( !defined ( 'DIR_CORE' )) {
     header ( 'Location: static_pages/' );
 }
 
-class ControllerResponsesExtensionPaystack extends AController{
+class ControllerResponsesExtensionPaystackPayments extends AController{
 
     public $data = array();
     public function generate_code($length = 4){
@@ -44,7 +44,7 @@ class ControllerResponsesExtensionPaystack extends AController{
         $this->data['city'] = $order_info['shipping_city'];
         $this->data['postal_code'] = $order_info['shipping_postcode'];
         $this->data['address'] = $order_info['shipping_address_1'];
-        $this->data['form_callback'] = $this->html->getSecureURL('extension/paystack-payments/callback');
+        $this->data['form_callback'] = $this->html->getSecureURL('extension/paystack_payments/callback');
 
         $this->load->library('encryption');
         $encryption = new AEncryption($this->config->get('encryption_key'));
@@ -74,7 +74,7 @@ class ControllerResponsesExtensionPaystack extends AController{
             ));
 
         $this->view->batchAssign( $this->data );
-        $this->processTemplate('responses/paystack-payments.tpl');
+        $this->processTemplate('responses/paystack_payments.tpl');
     }
 
     function callback(){

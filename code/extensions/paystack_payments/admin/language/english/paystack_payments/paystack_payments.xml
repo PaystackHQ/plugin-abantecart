@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <definitions>
     <definition>
-        <key>paystack_name</key>
+        <key>paystack_payments_name</key>
         <value><![CDATA[Paystack]]></value>
     </definition>
     <definition>
-        <key>paystack_note</key>
+        <key>paystack_payments_note</key>
         <value><![CDATA[Make sure you have all the API keys correctly, for the plugin to work]]></value>
     </definition>
     <definition>
