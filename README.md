@@ -10,6 +10,8 @@ Here you can browse the source code, look at open issues and keep track of devel
 ### Minimum Requirements
 
 * Confirm that your server can conclude a TLSv1.2 connection to Paystack's servers. More information about this requirement can be gleaned here: [TLS v1.2 requirement](https://developers.paystack.co/blog/tls-v12-requirement).
+* PHP with the 21 Oct 2026 security fixes for critical remote code execution flaws (GHSA-w8hw-w9fx-j79w, GHSA-6wmf-4rv5-p3rp; [php.net advisory](https://www.php.net/releases/8_2_35.php)): **8.2.35, 8.3.36, 8.4.27, 8.5.12 or later**. PHP 8.1 and older no longer receive security fixes.
+* AbanteCart 1.4.x or later is recommended for PHP 8.2+. AbanteCart [1.3.4](https://www.abantecart.com/shopping-cart-news/abantecart-134-release) only set PHP 8.0 as its minimum, [1.4.0](https://www.abantecart.com/shopping-cart-news/abantecart-140-released) added PHP 8.3 support and [1.4.2](https://www.abantecart.com/shopping-cart-news/abantecart-142-release) added PHP 8.4 support; AbanteCart does not document PHP 8.5 support. The extension manifest (`config.xml`, `package.xml`) currently declares compatibility with AbanteCart 1.3 only, and this plugin has not been tested inside a real AbanteCart 1.3 or 1.4 install, so if you are on 1.3.x and cannot run a patched PHP 8.2+, upgrade AbanteCart first.
 * At least version 4.0.0 of the WPJobster theme
 
 ### Automatic installation
