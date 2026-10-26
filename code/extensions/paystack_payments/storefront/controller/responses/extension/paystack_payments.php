@@ -51,13 +51,13 @@ class ControllerResponsesExtensionPaystackPayments extends AController{
         $this->data['id'] = $encryption->encrypt($this->session->data['order_id']);
         $this->data['txn_code'] = $this->generate_code().$this->session->data['order_id'].$this->generate_code();
 
-        if ($this->request->get['rt'] != 'checkout/guest_step_3') {
+        if (!isset($this->request->get['rt']) || $this->request->get['rt'] != 'checkout/guest_step_3') {
             $this->data['back'] = $this->html->getSecureURL('checkout/payment');
         } else {
             $this->data['back'] = $this->html->getSecureURL('checkout/guest_step_2');
         }
 
-        $back = $this->request->get[ 'rt' ] != 'checkout/guest_step_3'
+        $back = (!isset($this->request->get[ 'rt' ]) || $this->request->get[ 'rt' ] != 'checkout/guest_step_3')
             ? $this->html->getSecureURL('checkout/payment')
             : $this->html->getSecureURL('checkout/guest_step_2');
 
@@ -108,14 +108,15 @@ class ControllerResponsesExtensionPaystackPayments extends AController{
             $prk =  $this->config->get('paystack_lsk');
         }
 
-        $verification = verify_txn($this->request->post['txn_code'],$prk);
-        if (($verification->status===false) || (!property_exists($verification, 'data')) || ($verification->data->status !== 'success')) {
+        $txn_code = isset($this->request->post['txn_code']) ? $this->request->post['txn_code'] : '';
+        $verification = verify_txn($txn_code,$prk);
+        if ((!is_object($verification)) || ($verification->status===false) || (!property_exists($verification, 'data')) || ($verification->data->status !== 'success')) {
             $this->model_checkout_order->confirm($order_id, $this->config->get('config_order_status_id'),'Processing Payment');
 
             $msg = new AMessage();
             $msg->saveError('Paystack','Error verifying the payment of the order '.$order_id);
         }else{
-          $this->model_checkout_order->confirm($order_id, $this->config->get('paystack_order_status_id'),'Payment was successful, Transaction ID : '.$this->request->post['txn_code']);
+          $this->model_checkout_order->confirm($order_id, $this->config->get('paystack_order_status_id'),'Payment was successful, Transaction ID : '.$txn_code);
 
         }
 
